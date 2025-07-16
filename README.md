@@ -1,1 +1,1 @@
-# ReactNativeEx
+# ReactNative Exercises
