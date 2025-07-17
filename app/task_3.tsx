@@ -1,19 +1,23 @@
-import { Text, View, StyleSheet, Button, Alert } from "react-native";
+import { Text, View, StyleSheet, Alert } from "react-native";
 import React, {useState} from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";  
 
-const CustomComponent = ({ onPress, text }: { onPress: () => void; text: string }) => {
-    return (
-        <View style={{ backgroundColor: 'lightgreen', padding: 10, borderRadius: 5, margin: 10 }}>
-            <Text
-            style={{ color: 'black', fontSize: 16, textAlign: 'center' }}
-            onPress={onPress}
-            >
-            {text}
-            </Text>
-        </View>
-    );
-}
+type CustomComponentProps = {
+  onPress: () => void;
+  text: string;
+};
+
+const CustomComponent: React.FC<CustomComponentProps> = ({ onPress, text }) => {
+  return (
+    <View style={styles.container}>
+      <View style={{ backgroundColor: 'lightblue', padding: 20, borderRadius: 5 }}>
+        <Text style={styles.text} onPress={onPress}>
+          {text}
+        </Text>
+      </View>
+    </View>
+  );
+};
 
 const Task_3 = () => {
   return (
@@ -28,6 +32,7 @@ const Task_3 = () => {
     
   );
 }
+export { CustomComponent }; 
 export default Task_3;
 
 const styles = StyleSheet.create({
@@ -37,7 +42,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#ffff',
         },
+    text: {
+        color: 'black',
+        fontSize: 16,
+        textAlign: 'center',
+        marginBottom: 20,
+        fontWeight: 'bold',
     }
-)
-
+})
 
